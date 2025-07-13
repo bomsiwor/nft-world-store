@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 const product = {
   id: 1,
   title: "NFTWorld Product Name",
-  price: "IDR 199.99",
-  originalPrice: "IDR 249.99",
+  price: "IDR 199.999",
+  originalPrice: "IDR 249.999",
   rating: 4.8,
   reviews: 124,
   description:
@@ -34,25 +34,25 @@ const relatedProducts = [
   {
     id: 2,
     title: "Related Product 1",
-    price: "$149",
+    price: "IDR 149.000",
     image: "/assets/02.webp",
   },
   {
     id: 3,
     title: "Related Product 2",
-    price: "$179",
+    price: "IDR 179.000",
     image: "/assets/03.webp",
   },
   {
     id: 4,
     title: "Related Product 3",
-    price: "$199",
+    price: "IDR 199.000",
     image: "/assets/04.webp",
   },
   {
     id: 5,
     title: "Related Product 4",
-    price: "$229",
+    price: "IDR 229.000",
     image: "/assets/05.webp",
   },
 ];
