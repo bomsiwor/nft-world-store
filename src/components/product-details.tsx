@@ -1,0 +1,245 @@
+import { useState } from "react";
+import { ArrowLeft, Heart, Share2, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+
+// Mock product data
+const product = {
+  id: 1,
+  title: "NFTWorld Product Name",
+  price: "IDR 199.99",
+  originalPrice: "IDR 249.99",
+  rating: 4.8,
+  reviews: 124,
+  description:
+    "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+  features: [
+    "High-quality materials",
+    "Exceptional craftsmanship",
+    "Modern design",
+    "Durable construction",
+    "Easy maintenance",
+  ],
+  images: [
+    "/assets/01.webp",
+    "/assets/02.webp",
+    "/assets/03.webp",
+    "/assets/04.webp",
+  ],
+  inStock: true,
+  category: "Premium Collection",
+};
+
+const relatedProducts = [
+  {
+    id: 2,
+    title: "Related Product 1",
+    price: "$149",
+    image: "/assets/02.webp",
+  },
+  {
+    id: 3,
+    title: "Related Product 2",
+    price: "$179",
+    image: "/assets/03.webp",
+  },
+  {
+    id: 4,
+    title: "Related Product 3",
+    price: "$199",
+    image: "/assets/04.webp",
+  },
+  {
+    id: 5,
+    title: "Related Product 4",
+    price: "$229",
+    image: "/assets/05.webp",
+  },
+];
+
+export default function ProductDetail({ productId }: { productId: string }) {
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-200 py-4 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <a
+            href="/"
+            className="flex items-center gap-2 text-black hover:text-gray-600"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            <span>Back to Home</span>
+          </a>
+          <div className="flex items-center gap-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsFavorite(!isFavorite)}
+              className={isFavorite ? "text-red-500" : ""}
+            >
+              <Heart
+                className={`h-4 w-4 ${isFavorite ? "fill-current" : ""}`}
+              />
+            </Button>
+            <Button variant="outline" size="icon">
+              <Share2 className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto py-8 px-4 md:px-8">
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Product Images */}
+          <div>
+            <div className="aspect-square mb-4">
+              <img
+                src={product.images[selectedImage] || "/placeholder.svg"}
+                alt={product.title}
+                width={600}
+                height={600}
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {product.images.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`aspect-square rounded-lg overflow-hidden border-2 ${
+                    selectedImage === index ? "border-black" : "border-gray-200"
+                  }`}
+                >
+                  <img
+                    src={image || "/placeholder.svg"}
+                    alt={`${product.title} ${index + 1}`}
+                    width={150}
+                    height={150}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Product Info */}
+          <div className="space-y-6">
+            <div>
+              <Badge variant="secondary" className="mb-2">
+                {product.category}
+              </Badge>
+              <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < Math.floor(product.rating)
+                          ? "fill-yellow-400 text-yellow-400"
+                          : "text-gray-300"
+                      }`}
+                    />
+                  ))}
+                  <span className="text-sm text-gray-600 ml-2">
+                    {product.rating} ({product.reviews} reviews)
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-3xl font-bold">{product.price}</span>
+                <span className="text-xl text-gray-500 line-through">
+                  {product.originalPrice}
+                </span>
+                <Badge variant="destructive">Sale</Badge>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Description</h3>
+              <p className="text-gray-600 leading-relaxed">
+                {product.description}
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Features</h3>
+              <ul className="space-y-1">
+                {product.features.map((feature, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center gap-2 text-gray-600"
+                  >
+                    <div className="w-1.5 h-1.5 bg-black rounded-full" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="flex items-center border border-gray-300 rounded-lg">
+                <button
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  className="px-3 py-2 hover:bg-gray-100"
+                >
+                  -
+                </button>
+                <span className="px-4 py-2 border-x border-gray-300">
+                  {quantity}
+                </span>
+                <button
+                  onClick={() => setQuantity(quantity + 1)}
+                  className="px-3 py-2 hover:bg-gray-100"
+                >
+                  +
+                </button>
+              </div>
+              <Button className="flex-1 bg-black text-white hover:bg-gray-800">
+                Add to Cart
+              </Button>
+            </div>
+
+            <div className="text-sm text-gray-600">
+              {product.inStock ? (
+                <span className="text-green-600">✓ In Stock</span>
+              ) : (
+                <span className="text-red-600">✗ Out of Stock</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Related Products */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold mb-8">Related Products</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {relatedProducts.map((product) => (
+              <a
+                key={product.id}
+                href={`/product/${product.id}`}
+                className="group"
+              >
+                <div className="aspect-square mb-4">
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.title}
+                    width={200}
+                    height={200}
+                    className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="font-medium mb-2">{product.title}</h3>
+                <p className="text-lg font-semibold">{product.price}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

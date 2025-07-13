@@ -1,16 +1,33 @@
 ---
+import Footer from '@/components/footer';
 import '../styles/global.css';
-const { content } = Astro.props;
+import Copyright from '@/components/copyright';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Your store description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="font-oswald">
+    <div class="h-24 w-full bg-black px-16 py-4 flex flex-row items-center">
+      <div class="text-4xl text-white">LOGO</div>
+    </div>
+    <slot />
+  <Footer />
+  <Copyright />
+  </body>
 </html>
+
+<style is:global>
+</style>
