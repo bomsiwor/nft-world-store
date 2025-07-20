@@ -118,7 +118,12 @@ export default function NewArrivalSection() {
                       isVisible ? "block" : "hidden"
                     } ${isActive ? "scale-100" : "scale-90"}`}
                   >
-                    <div className="relative w-80 h-80">
+                    <div
+                      className="relative w-80 h-80 cursor-pointer"
+                      onClick={() =>
+                        (window.location.href = "/product/" + product.id)
+                      }
+                    >
                       <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.title}
