@@ -4,56 +4,192 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 // Mock product data
-const product = {
-  id: 1,
-  title: "NFTWorld Product Name",
-  price: "IDR 199.999",
-  originalPrice: "IDR 249.999",
-  rating: 4.8,
-  reviews: 124,
-  description:
-    "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
-  features: [
-    "High-quality materials",
-    "Exceptional craftsmanship",
-    "Modern design",
-    "Durable construction",
-    "Easy maintenance",
-  ],
-  images: [
-    "/assets/01.webp",
-    "/assets/02.webp",
-    "/assets/03.webp",
-    "/assets/04.webp",
-  ],
-  inStock: true,
-  category: "Premium Collection",
-};
+const products = [
+  {
+    id: "1",
+    title: "NFTWRLD - Balaclava Brian Reflective Gothic Style",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.5,
+    reviews: 78,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/NFTWRLD_-_Balaclava_Brian.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "2",
+    title: "NFTWRLD - T-shirt_Boxy_Axel",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.9,
+    reviews: 92,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/NFTWRLD_-_T-shirt_Boxy_Axel.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "3",
+    title: "NFTWRLD - Trucker Hat No More Enemies Unisex Retro",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.1,
+    reviews: 55,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: [
+      "/assets/NFTWRLD_-_Trucker_Hat_No_More_Enemies_Unisex_Retro-.webp",
+    ],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "4",
+    title: "NFTWRLD - Jersey Boxy Snoop",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.7,
+    reviews: 63,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/NFTWRLD_-_Jersey_Boxy_Snoop.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "5",
+    title: "NFTWRLD - Trucker Hat Drake",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.3,
+    reviews: 81,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/NFTWRLD_-_Trucker_Hat_Sade-.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "6",
+    title: "NFTWRLD - Jersey Boxy Ghetts Striped Unisex",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.6,
+    reviews: 70,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/new arrival 1.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "7",
+    title: "NFTWRLD - Jersey Boxy Denzel",
+    price: "IDR 155.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.2,
+    reviews: 99,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/new arrival 2.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+  {
+    id: "8",
+    title: "NFTWRLD - Jersey Boxy Elliott",
+    price: "IDR 199.000",
+    originalPrice: "IDR 249.999",
+    rating: 4.0,
+    reviews: 32,
+    description:
+      "This is a detailed description of the premium product. It features high-quality materials and exceptional craftsmanship that makes it stand out from the competition.",
+    features: [
+      "High-quality materials",
+      "Exceptional craftsmanship",
+      "Modern design",
+      "Durable construction",
+      "Easy maintenance",
+    ],
+    images: ["/assets/new arrival 3.webp"],
+    inStock: true,
+    category: "Premium Collection",
+  },
+];
 
 const relatedProducts = [
   {
-    id: 2,
-    title: "Related Product 1",
-    price: "IDR 149.000",
-    image: "/assets/02.webp",
+    id: 6,
+    title: "NFTWRLD - Jersey Boxy Ghetts Striped Unisex",
+    price: "IDR 155.000",
+    image: "/assets/new arrival 1.webp",
+    createdAt: "2024-01-15",
   },
   {
-    id: 3,
-    title: "Related Product 2",
-    price: "IDR 179.000",
-    image: "/assets/03.webp",
+    id: 7,
+    title: "NFTWRLD - Jersey Boxy Denzel",
+    price: "IDR 155.000",
+    image: "/assets/new arrival 2.webp",
+    createdAt: "2024-01-14",
   },
   {
-    id: 4,
-    title: "Related Product 3",
+    id: 8,
+    title: "NFTWRLD - Jersey Boxy Elliott",
     price: "IDR 199.000",
-    image: "/assets/04.webp",
-  },
-  {
-    id: 5,
-    title: "Related Product 4",
-    price: "IDR 229.000",
-    image: "/assets/05.webp",
+    image: "/assets/new arrival 3.webp",
+    createdAt: "2024-01-13",
   },
 ];
 
@@ -61,6 +197,9 @@ export default function ProductDetail({ productId }: { productId: string }) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  console.log(productId);
+  const product = products.find((prod) => prod.id == productId) || products[0];
 
   return (
     <div className="min-h-screen bg-white">

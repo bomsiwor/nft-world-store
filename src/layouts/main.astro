@@ -20,8 +20,10 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="font-oswald">
-    <div class="h-24 w-full bg-black px-16 py-4 flex flex-row items-center">
-      <div class="text-4xl text-white">LOGO</div>
+    <div class="h-16 w-full bg-black px-16 py-4 flex flex-row justify-center">
+      <div class="h-9">
+        <img class="h-full" src="/assets/white-logo.png">
+      </div>
     </div>
     <slot />
   <Footer />
