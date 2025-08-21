@@ -163,14 +163,13 @@ export default function NewArrivalSection() {
         </div>
       </div>
 
-      <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center my-4">
-        <div className="text-center text-gray-500">
-          <div className="w-16 h-16 mx-auto mb-4 bg-gray-300 rounded-full flex items-center justify-center">
-            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 12l-6-6 1.41-1.41L10 9.17l4.59-4.58L16 6l-6 6z" />
-            </svg>
-          </div>
-          <p className="text-sm">YouTube Video Placeholder</p>
+      <div className="aspect-video bg-gray-100 rounded-lg items-center justify-center my-4 overflow-hidden">
+        <div className="text-center text-gray-500 w-full h-full">
+          <iframe
+            src="https://www.youtube.com/embed/uYDYNMvqjvs"
+            allowFullScreen
+            className=" w-full h-full"
+          ></iframe>
         </div>
       </div>
 
